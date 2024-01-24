@@ -1,11 +1,39 @@
-package org.devops
+def call(Map param){
 
-def clone(Map params){
-    def branch_name = "feature"
-    def url = "https://github.com/CristianBetancourthAvila/react-test.git"
-    git branch: "${branch_name}", url: "${url}"
-}
+    pipeline{
 
-def install(){
-    sh 'npm install' 
+        agent any
+
+        tools{
+            nodejs 'NodeJS'
+        }
+
+        // triggers {
+        //     pollSCM('* * * * *') // Programa la verificación del repositorio cada minuto
+        // }
+
+        // environment{
+        //    PROJECT = "${env.GIT_URL}".replaceAll('.+/(.+)\\.git', '$1')toLowerCase()
+        // }
+
+        stages{
+            stage('Clone App') {
+                steps {
+                    script {
+                        def cloneapp = new org.devops.lb_buildartefacto()
+                        cloneapp.clone("https://github.com/CristianBetancourthAvila/react-test.git")
+                    }
+                }
+            }
+
+            stage('Construccion App') {
+                steps {
+                    script {
+                        def buildapp = new org.devops.lb_buildartefacto()
+                        buildapp.install()
+                    }
+                }
+            }
+        }
+    }
 }
