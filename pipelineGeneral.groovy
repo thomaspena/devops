@@ -21,7 +21,7 @@ def call(Map param){
                 steps {
                     script {
                         def cloneapp = new org.devops.lb_buildartefacto()
-                        cloneapp.clone(scmUrl:params.scmUrl)
+                        cloneapp.clone("https://github.com/CristianBetancourthAvila/react-test.git")
                     }
                 }
             }
