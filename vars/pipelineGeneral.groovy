@@ -17,20 +17,31 @@ def call(Map param){
         // }
 
         stages{
-            stage('Clone App') {
+            stage('Fase 1: Proceso de construcción') {
                 steps {
                     script {
                         def cloneapp = new org.devops.lb_buildartefacto()
                         cloneapp.clone()
+                        def buildapp = new org.devops.lb_buildartefacto()
+                        buildapp.install()
                     }
                 }
             }
 
-            stage('Construccion App') {
-                steps {
-                    script {
-                        def buildapp = new org.devops.lb_buildartefacto()
-                        buildapp.install()
+            //stage('Construccion App') {
+            //    steps {
+            //        script {
+            //            def buildapp = new org.devops.lb_buildartefacto()
+            //            buildapp.install()
+            //        }
+            //    }
+            //}
+
+            stage('Fase 1: Análisis de Sonarqube'){
+                steps{
+                    script{
+                       def analisysSonarqube = new org.devops.lb_analisissonarqube()
+                       analisysSonarqube.analisys()
                     }
                 }
             }
