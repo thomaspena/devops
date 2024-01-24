@@ -21,7 +21,7 @@ def call(Map param){
                 steps {
                     script {
                         def cloneapp = new org.devops.lb_buildartefacto()
-                        cloneapp.clone(GIT_URL_1:params.GIT_URL_1)
+                        cloneapp.clone()
                         def buildapp = new org.devops.lb_buildartefacto()
                         buildapp.install()
                     }
