@@ -1,15 +1,8 @@
 package org.devops
 
 def runTest(){
-    
+    sh 'npm test'
 }
-stage('Run Tests') {
-            steps {
-                script {
-                    sh 'npm test'
-                }
-            }
-        }
 
 def analisys(){
     def scannerHome = tool 'sonar-scanner'
