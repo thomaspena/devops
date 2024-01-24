@@ -20,7 +20,7 @@ def call(Map param){
             stage('Clone App') {
                 steps {
                     script {
-                        def cloneapp = new lib.lb_buildartefacto()
+                        def cloneapp = new lb_buildartefacto()
                         cloneapp.clone("https://github.com/CristianBetancourthAvila/react-test.git")
                     }
                 }
@@ -29,7 +29,7 @@ def call(Map param){
             stage('Construccion App') {
                 steps {
                     script {
-                        def buildapp = new lib.lb_buildartefacto()
+                        def buildapp = new lb_buildartefacto()
                         buildapp.install()
                     }
                 }
