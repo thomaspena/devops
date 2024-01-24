@@ -24,7 +24,6 @@ def call(Map param){
                         cloneapp.clone(scmUrl:params.scmUrl)
                     }
                 }
-                
             }
 
             stage('Construccion App') {
@@ -33,8 +32,8 @@ def call(Map param){
                         def buildapp = new org.devops.lb_buildartefacto()
                         buildapp.install()
                     }
-                } 
-            }     
+                }
+            }
         }
     }
 }
