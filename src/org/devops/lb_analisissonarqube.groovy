@@ -4,12 +4,12 @@ def runTest(){
     sh 'npm test'
 }
 
-def analisys(){
+def analisys(projectGitName){
     def scannerHome = tool 'sonar-scanner'
     withSonarQubeEnv('sonar-scanner') {
         sh "${scannerHome}/bin/sonar-scanner -X \
-            -Dsonar.projectKey=react-test \
-            -Dsonar.projectName=react-test \
+            -Dsonar.projectKey=${projectGitName} \
+            -Dsonar.projectName=${projectGitName} \
             -Dsonar.sources=src \
             -Dsonar.tests=src/__test__ \
             -Dsonar.exclusions='**/*.test.js' \
