@@ -10,7 +10,7 @@ def analisys(projectGitName){
         sh "${scannerHome}/bin/sonar-scanner -X \
             -Dsonar.projectKey=${projectGitName} \
             -Dsonar.projectName=${projectGitName} \
-            -Dsonar.sources=src \
+            -Dsonar.sources=${env.SOURCE} \
             -Dsonar.tests=src/__test__ \
             -Dsonar.exclusions='**/*.test.js' \
             -Dsonar.testExecutionReportPaths=./test-report.xml \
