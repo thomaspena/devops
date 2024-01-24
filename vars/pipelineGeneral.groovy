@@ -5,7 +5,7 @@ def call(Map param){
         agent any
 
         tools{
-            nodejs 'NodeJS'
+            nodejs 'NodeJS18'
         }
 
         // triggers {
