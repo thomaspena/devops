@@ -13,7 +13,7 @@ def call(Map param){
         // }
 
         environment{
-            projectName = "${env.GIT_URLS}".replaceAll('.+/(.+)\\.git', '$1')toLowerCase()
+            projectName = "${env.GIT_URL_1}".replaceAll('.+/(.+)\\.git', '$1')toLowerCase()
         }
 
         stages{
@@ -21,7 +21,7 @@ def call(Map param){
                 steps {
                     script {
                         def cloneapp = new org.devops.lb_buildartefacto()
-                        cloneapp.clone(GIT_URLS:params.GIT_URLS)
+                        cloneapp.clone(GIT_URL_1:params.GIT_URL_1)
                         def buildapp = new org.devops.lb_buildartefacto()
                         buildapp.install()
                     }
