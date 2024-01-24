@@ -1,5 +1,16 @@
 package org.devops
 
+def runTest(){
+    
+}
+stage('Run Tests') {
+            steps {
+                script {
+                    sh 'npm test'
+                }
+            }
+        }
+
 def analisys(){
     def scannerHome = tool 'sonar-scanner'
     withSonarQubeEnv('sonar-scanner') {
