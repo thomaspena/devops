@@ -40,8 +40,10 @@ def call(Map param){
             stage('Fase 1: Análisis de Sonarqube'){
                 steps{
                     script{
-                       def analisysSonarqube = new org.devops.lb_analisissonarqube()
-                       analisysSonarqube.analisys()
+                        def test = new org.devops.lb_analisissonarqube()
+                        test.runTest()
+                        def analisysSonarqube = new org.devops.lb_analisissonarqube()
+                        analisysSonarqube.analisys()
                     }
                 }
             }
