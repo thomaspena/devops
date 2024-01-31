@@ -9,6 +9,6 @@ package org.devops
 
 def cargarDockerHub(projectGitName){
     sh "docker login -u ${env.USR_DH} -p ${env.PASS_DH}"
-    sh "docker tag ${projectGitName} "${env.USR_DH}"/${projectGitName}"
-    sh "docker push "${env.USR_DH}"/${projectGitName}"
+    sh "docker tag ${projectGitName} ${env.USR_DH}/${projectGitName}"
+    sh "docker push ${env.USR_DH}/${projectGitName}"
 }
