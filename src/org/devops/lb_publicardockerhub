@@ -1,7 +1,8 @@
 package org.devops
 
 def cargarDockerHub(PROJECT){
-    withDockerRegistry([ credentialsId: "retofase2", url: "https://index.docker.io/v1/" ]) {
-        sh "docker push laurabecerra/${PROJECT}:${env.BUILD_ID}"
-        }
+    dockerHubCredentials = credentials(${env.TOKEN_ID})
+    sh "docker login -u ${dockerHubCredentials.username} -p ${dockerHubCredentials.password}"
+    sh "docker tag ${projectGitName} ${dockerHubCredentials.username}/${projectGitName}
+    sh "docker push ${dockerHubCredentials.username}/${projectGitName}"
 }
