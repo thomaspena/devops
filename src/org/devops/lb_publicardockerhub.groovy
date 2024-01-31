@@ -8,7 +8,10 @@ package org.devops
 }*/
 
 def cargarDockerHub(projectGitName){
-    sh "docker login -u ${env.USR_DH} -p ${env.PASS_DH}"
-    sh "docker tag ${projectGitName} ${env.USR_DH}/${projectGitName}"
-    sh "docker push ${env.USR_DH}/${projectGitName}"
+    //def dockerHubTokenCredentialId = "${env.TOKEN_ID}"
+    withCredentials([usernamePassword(credentialsId: '${env.TOKEN_ID}', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+        sh "docker login -u ${env.DOCKERHUB_USERNAME} -p ${env.DOCKERHUB_PASSWORD}"
+        sh "docker tag ${projectGitName} ${env.DOCKERHUB_USERNAME}/${projectGitName}"
+        sh "docker push ${env.DOCKERHUB_USERNAME}/${projectGitName}"
+    }
 }
