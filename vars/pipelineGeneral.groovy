@@ -31,7 +31,7 @@ def call(){
                 }
             }
 
-            stage('Fase 3: Desplegando el contenedor') {
+            stage('Fase 2: Desplegando el contenedor') {
                 steps {
                     script {
                         def deployingContainer = new org.devops.lb_deploydocker()
