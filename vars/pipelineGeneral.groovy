@@ -22,6 +22,15 @@ def call(){
                 }
             }
 
+            stage('Fase 2: Cargando la imagen en Docker Hub') {
+                steps {
+                    script {
+                        def publishimage = new org.devops.lb_publicardockerhub()
+                        publishimage.cargarDockerHub("${projectName}")
+                    }
+                }
+            }
+
             /*stage('Fase 1: Proceso de construcción') {
                 steps {
                     script {
