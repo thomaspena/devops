@@ -40,6 +40,15 @@ def call(){
                 }
             }
 
+            stage('Fase 2: Análisis de OWASP') {
+                steps {
+                    script {
+                        def analisysOWASP = new org.devops.lb_owasp()
+                        analisysOWASP.analisisOWASP()
+                    }
+                }
+            }
+
             /*stage('Fase 1: Proceso de construcción') {
                 steps {
                     script {
