@@ -1,5 +1,5 @@
 def call(){
-//PRUEBA DE TRIGGER
+    
     pipeline{
 
         agent any
