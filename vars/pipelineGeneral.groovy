@@ -7,10 +7,6 @@ def call(){
         tools{
             nodejs 'NodeJS18'
         }
-
-        triggers{
-            pollSCM('H * * * * 0-5')
-        }
         
         environment{
             projectName = "${env.GIT_URL_1}".replaceAll('.+/(.+)\\.git', '$1')toLowerCase()
