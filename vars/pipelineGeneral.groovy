@@ -49,7 +49,7 @@ def call(){
                 }
             }
 
-            /*stage('Fase 1: Proceso de construcción') {
+            stage('Fase 1: Proceso de construcción') {
                 steps {
                     script {
                         def cloneapp = new org.devops.lb_buildartefacto()
@@ -69,7 +69,7 @@ def call(){
                         analisysSonarqube.analisys("${projectName}")
                     }
                 }
-            }*/
+            }
         }
     }
 }
